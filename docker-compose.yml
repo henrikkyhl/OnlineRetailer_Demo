@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  onlineretailerapigateway:
+    image: ${DOCKER_REGISTRY-}onlineretailerapigateway
+    build:
+      context: .
+      dockerfile: OnlineRetailerApiGateway/Dockerfile
+    ports:
+    - "7000:80"
+      
+  productapi:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: ProductApi/Dockerfile
+    ports:
+    - "7001:80"      
+
+  orderapi:
+    image: ${DOCKER_REGISTRY-}orderapi
+    build:
+      context: .
+      dockerfile: OrderApi/Dockerfile
+    ports:
+    - "7002:80"      

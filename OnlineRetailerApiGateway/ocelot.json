@@ -1,7 +1,7 @@
 ﻿{
   "ReRoutes": [
     {
-      // ProductApi routes for aggregate: Orders and product
+      // ProductApi routes for aggregate: Orders and products
       "DownstreamPathTemplate": "/products",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -85,21 +85,23 @@
       "UpstreamHttpMethod": [ "Get", "Post" ]
     }
   ],
-  // Aggregates: Orders by product
+  // Aggregates:
   "Aggregates": [
+    // Orders by product
     {
       "ReRouteKeys": [
         "ordersbyproduct",
         "product"
       ],
-      "UpstreamPathTemplate": "/aggregates/ordersbyproduct/{id}",
+      "UpstreamPathTemplate": "/aggregates/ordersbyproduct/{id}"
     },
+    // Orders and products
     {
       "ReRouteKeys": [
         "allorders",
         "allproducts"
       ],
-      "UpstreamPathTemplate": "/aggregates/ordersandproducts",
+      "UpstreamPathTemplate": "/aggregates/ordersandproducts"
     }
   ],
   // Global configuration

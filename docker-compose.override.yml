@@ -13,7 +13,6 @@ services:
     ports:
       - "80"
 
-
   onlineretailerapigateway:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

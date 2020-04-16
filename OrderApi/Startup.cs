@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using OrderApi.Data;
 using OrderApi.Infrastructure;
 using SharedModels;
+using Prometheus;
 
 namespace OrderApi
 {
@@ -75,11 +76,14 @@ namespace OrderApi
 
             app.UseRouting();
 
+            app.UseHttpMetrics();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapMetrics();
             });
         }
     }

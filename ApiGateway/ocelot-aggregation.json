@@ -1,5 +1,5 @@
 ﻿{
-  "ReRoutes": [
+  "Routes": [
     {
       // ProductApi routes for aggregate: Orders and products
       "DownstreamPathTemplate": "/products",
@@ -89,7 +89,7 @@
   "Aggregates": [
     // Orders by product
     {
-      "ReRouteKeys": [
+      "RouteKeys": [
         "ordersbyproduct",
         "product"
       ],
@@ -97,7 +97,7 @@
     },
     // Orders and products
     {
-      "ReRouteKeys": [
+      "RouteKeys": [
         "allorders",
         "allproducts"
       ],
@@ -106,6 +106,6 @@
   ],
   // Global configuration
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:7000"
+    "BaseUrl": "https://localhost:8000"
   }
 }

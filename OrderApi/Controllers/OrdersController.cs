@@ -52,9 +52,9 @@ namespace OrderApi.Controllers
         {
             List<Order> ordersWithSpecificProduct = new List<Order>();
 
-            foreach(var order in repository.GetAll())
+            foreach (var order in repository.GetAll())
             {
-                if ( order.OrderLines.Where(o => o.ProductId == id).Any() )
+                if (order.OrderLines.Where(o => o.ProductId == id).Any())
                 {
                     ordersWithSpecificProduct.Add(order);
                 }
@@ -135,10 +135,8 @@ namespace OrderApi.Controllers
         }
 
         // PUT orders/5/pay
-        // This action method marks an order as paid and publishes an OrderPaidMessage
-        // (which have not yet been implemented). The OrderPaidMessage should specify the
-        // Id of the customer who placed the order, and a number that indicates how many
-        // unpaid orders the customer has (not counting cancelled orders). 
+        // This action method marks an order as paid and publishes a CreditStandingChangedMessage
+        // (which have not yet been implemented), if the credit standing changes.
         [HttpPut("{id}/pay")]
         public IActionResult Pay(int id)
         {

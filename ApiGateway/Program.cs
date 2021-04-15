@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace OnlineRetailerApiGateway
+namespace ApiGateway
 {
     public class Program
     {
@@ -18,10 +18,9 @@ namespace OnlineRetailerApiGateway
                     webBuilder
                     .ConfigureAppConfiguration((host, config) =>
                     {
-                        config.AddJsonFile("ocelot.json");
+                        config.AddJsonFile("ocelot-aggregation.json");
                     })
                     .UseStartup<Startup>();
                 });
-
     }
 }

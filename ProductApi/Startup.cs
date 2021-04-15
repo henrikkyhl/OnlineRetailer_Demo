@@ -9,16 +9,16 @@ using ProductApi.Data;
 using ProductApi.Infrastructure;
 using ProductApi.Models;
 using SharedModels;
-using Prometheus;
 
 namespace ProductApi
 {
     public class Startup
     {
         // RabbitMQ connection string (I use CloudAMQP as a RabbitMQ server).
-        // Remember to replace this connectionstring with youur own.
+        // Remember to replace this connectionstring with your own.
         string cloudAMQPConnectionString =
-            "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=YourCloudAmqpPassword";
+            "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=doNRgDuVmrCoH6eidM1nILQbMc_r1eEZ";
+            //"host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=typeyourpasswordhere";
 
         public Startup(IConfiguration configuration)
         {
@@ -67,18 +67,15 @@ namespace ProductApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseHttpMetrics();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapMetrics();
             });
         }
     }

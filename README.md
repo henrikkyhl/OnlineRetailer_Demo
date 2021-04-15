@@ -1,22 +1,47 @@
-# OnlineRetailer_Demo
+# OnlineRetailer_Messaging-Partial
 
-The example is based on my partial solution to the Microservice mini project, where I have added an Ocelot API Gateway to the solution, and I have also added support for monitoring of the microservices using Prometheus and Grafana.
+This solution demonstrates how to use messaging to implement choreography in microservices.
 
-I have tested that the example can run using Docker Compose. The example cannot yet run using Kubernetes.
+The solution is Docker enabled, and it contains the following two microservices:
+1) ProductApi
+2) OrderApi
 
+It is a partial solution to the Microservice Mini Project that you may complete or use as inspiration.
 
-The docker-compose file has been modified so that the services, Prometheus, and Grafana listen on the following ports outside the docker host:
+Beware that The OrderApi does not implement a hidden model. It uses only shared models defined in a class library project called "SharedModels". You need to implement hidden models as well to achieve a "bounded context", and thus minimize the coupling between services. There are also other things that you need to do to satisfy all the requirements for the Microservice Mini Project.
 
+You can run the solution using Docker or Kubernetes.
 
-OnlineRetailerApiGateway: 7000
-ProductApi: 7001
-OrderApi: 7002
-Prometheus: 9090
-Grafana: 3000
+To run the solution using Docker Compose, do the following:
+1) Open the Startup classes for ProductApi and OrderApi.
+2) In each of these Startup classes, modify the "cloudAMQPConnectionString" so that it connects to your own RabbitMQ Server.
+3) Build the solution in release mode.
+4) Open a command prompt and navigate to the folder of the solution.
+5) Run "docker-compose up -d"
+6) Run "docker-compose ps". Note the HTTP ports that the two services expose to the outside world.
+7) Open Postman and import the solution's Postman collection (it is in the solution's Postman folder).
+8) Try the different HTTP requests defined in the Postman collection (remember to replace port numbers with the port numbers from the output of the "docker-compose ps" command.
 
-Ocelot re-routes are defined in the ocelot.json file inside the OnlineRetailerApiGateway project.
-
-There is a Postman collection in the Postman subfolder that you can use to test the solution.
-
-Beware that the solution uses CloudAMQP. You should modify the  "cloudAMQPConnectionString" in the Startup classes of ProductApi and OrderApi to match your own RabbitMQ server, if you want to run the example.
-
+To run the solution using Kubernetes, do the following:
+1) Make sure that Kubernetes is enabled and running inside your Docker Desktop
+2) Perform step 1-4 mentioned above (running the solution using Docker Compose)
+3) In the command prompt, navigate to the Kubernetes folder inside the solution folder
+4) Publish your ProductApi and OrderApi images to Docker Hub (Kubernetes can only run published Docker images)
+5) Modify the following line in productapi.yml to match the name of your own image on Docker hub:
+   image: henrikkyhl/productapi:latest
+6) Modify the following line in orderapi.yml to match the name of your own image on Docker hub:
+   image: henrikkyhl/orderapi:latest
+7) Run the following two commands to deploy the two services of the solution to the Kubernetes cluster:
+   kubectl apply -f productapi.yml
+   kubectl apply -f orderapi.yml
+8) Run the following commands to get information about the services running on the Kubernetes cluster:
+   kubectl get services
+   You should see that ProductApi exposes port 31001 outside the cluster, and that OrderApi exposes port 31002
+9) Open your browser and make sure that you can call ProductApi and OrderApi to list products and orders:
+   http://localhost:31001/products
+   http://localhost:31002/orders
+10)Open Postman and import the solution's Postman collection (it is in the solution's Postman folder).
+11)Try the different HTTP requests defined in the Postman collection (remember to replace port numbers with the correct values)
+12)When you are finished, delete ProductApi and OrderApi from the Kubernetes cluster by running the following commands:
+   kubectl delete -f productapi.yml
+   kubectl delete -f orderapi.yml

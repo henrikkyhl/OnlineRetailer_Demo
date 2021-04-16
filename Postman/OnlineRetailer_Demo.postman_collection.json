@@ -11,8 +11,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7001/products",
-					"protocol": "http",
+					"raw": "https://localhost:7001/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -30,8 +30,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7001/products/1",
-					"protocol": "http",
+					"raw": "https://localhost:7001/products/1",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -59,8 +59,8 @@
 					"raw": "{\n    \"name\": \"Wrench\",\n    \"price\": 100,\n    \"itemsInStock\": 5,\n    \"itemsReserved\": 0\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7001/products",
-					"protocol": "http",
+					"raw": "https://localhost:7001/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -87,8 +87,8 @@
 					"raw": "{\n    \"id\": 3,\n    \"name\": \"Drill\",\n    \"price\": 500,\n    \"itemsInStock\": 5\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7001/products/3",
-					"protocol": "http",
+					"raw": "https://localhost:7001/products/3",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -111,8 +111,8 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:7001/products/1",
-					"protocol": "http",
+					"raw": "https://localhost:7001/products/1",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -131,8 +131,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7002/orders",
-					"protocol": "http",
+					"raw": "https://localhost:7002/orders",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -159,8 +159,8 @@
 					"raw": "{\n\t\"orderLines\":[{\"productId\":2,\"quantity\":1},{\"productId\":3,\"quantity\":1}]\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:7002/orders",
-					"protocol": "http",
+					"raw": "https://localhost:7002/orders",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -207,8 +207,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/productapi/products",
-					"protocol": "http",
+					"raw": "https://localhost:7000/productapi/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -227,8 +227,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/orderapi/orders",
-					"protocol": "http",
+					"raw": "https://localhost:7000/orderapi/orders",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -247,8 +247,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/productapi/products/1",
-					"protocol": "http",
+					"raw": "https://localhost:7000/productapi/products/1",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -268,8 +268,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/orderapi/orders/product/3",
-					"protocol": "http",
+					"raw": "https://localhost:7000/orderapi/orders/product/3",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -290,8 +290,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/aggregates/ordersbyproduct/3",
-					"protocol": "http",
+					"raw": "https://localhost:7000/aggregates/ordersbyproduct/3",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -311,8 +311,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:7000/aggregates/ordersandproducts",
-					"protocol": "http",
+					"raw": "https://localhost:7000/aggregates/ordersandproducts",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -325,6 +325,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -106,6 +106,6 @@
   ],
   // Global configuration
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:8000"
+    "BaseUrl": "https://localhost:7000"
   }
 }

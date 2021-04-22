@@ -9,6 +9,7 @@ using ProductApi.Data;
 using ProductApi.Infrastructure;
 using ProductApi.Models;
 using SharedModels;
+using Prometheus;
 
 namespace ProductApi
 {
@@ -70,11 +71,14 @@ namespace ProductApi
 
             app.UseRouting();
 
+            app.UseHttpMetrics();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapMetrics();
             });
         }
     }

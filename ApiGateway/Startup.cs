@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Prometheus;
 
 namespace ApiGateway
 {
@@ -28,8 +29,14 @@ namespace ApiGateway
 
             app.UseRouting();
 
+            // Expose HTTP metrics for monitoring using Prometheus
+            app.UseHttpMetrics();
+
             app.UseEndpoints(endpoints =>
             {
+                // Create a metrics endpoint
+                endpoints.MapMetrics();
+
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");

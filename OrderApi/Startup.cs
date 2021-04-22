@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using OrderApi.Data;
 using OrderApi.Infrastructure;
 using SharedModels;
+using Prometheus;
 
 namespace OrderApi
 {
@@ -22,7 +23,7 @@ namespace OrderApi
         // RabbitMQ connection string (I use CloudAMQP as a RabbitMQ server).
         // Remember to replace this connectionstring with youur own.
         string cloudAMQPConnectionString =
-          "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=typeyourpasswordhere";
+            "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=typeyourpasswordhere";
 
         public Startup(IConfiguration configuration)
         {
@@ -75,11 +76,14 @@ namespace OrderApi
 
             app.UseRouting();
 
+            app.UseHttpMetrics();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapMetrics();
             });
         }
     }

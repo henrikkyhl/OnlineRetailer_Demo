@@ -36,11 +36,6 @@ namespace ApiGateway
             {
                 // Create a metrics endpoint
                 endpoints.MapMetrics();
-
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
             });
 
             app.UseOcelot().Wait();

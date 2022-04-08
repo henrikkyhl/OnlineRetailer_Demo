@@ -2,9 +2,9 @@ The example is based on my partial solution to the Microservice mini project, wh
 
 The docker-compose file has been modified so that the services listens on the following HTTPS ports for requests outside the docker host:
 
-ApiGateway: 7000
-ProductApi: 7001
-OrderApi: 7002
+ApiGateway: 7430
+ProductApi: 7431
+OrderApi: 7432
 
 Routes are defined in the ocelot-routing.json and ocelot-aggregation.json files inside the ApiGateway project.
 

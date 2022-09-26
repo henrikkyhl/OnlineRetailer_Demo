@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>{D06F0545-1CF9-47EF-9C8A-D9E04F6C6F75}</ProjectGuid>
+    <ProjectGuid>{02884F0C-9C13-47C6-BCD2-B55442139595}</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/products</DockerServiceUrl>
     <DockerServiceName>productapi</DockerServiceName>
@@ -14,6 +14,5 @@
     </None>
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
-    <None Include="prometheus.yml" />
   </ItemGroup>
 </Project>

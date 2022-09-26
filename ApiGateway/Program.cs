@@ -1,26 +1,30 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+using Prometheus;
 
-namespace ApiGateway
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("ocelot-aggregation.json");
+
+builder.Services.AddOcelot();
+
+var app = builder.Build();
+
+//app.UseHttpsRedirection();
+
+app.UseHttpMetrics();
+
+//app.MapMetrics(); //Doesn't work here for some unknown reason.
+// Do it the old way instead:
+app.UseRouting();
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+    endpoints.MapMetrics();
+});
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder
-                    .ConfigureAppConfiguration((host, config) =>
-                    {
-                        config.AddJsonFile("ocelot-aggregation.json");
-                    })
-                    .UseStartup<Startup>();
-                });
-    }
-}
+app.UseOcelot().Wait();
+
+app.Run();
+
+

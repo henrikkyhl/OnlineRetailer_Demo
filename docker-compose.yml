@@ -21,13 +21,13 @@ services:
       dockerfile: ApiGateway/Dockerfile
 
   prometheus:
-    image: prom/prometheus:v2.34.0
+    image: prom/prometheus
     ports:
       - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
 
   grafana: 
-    image: grafana/grafana:8.4.5
+    image: grafana/grafana
     ports:
       - "3000:3000"

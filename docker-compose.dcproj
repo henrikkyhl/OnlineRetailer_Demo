@@ -3,9 +3,9 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>{02884F0C-9C13-47C6-BCD2-B55442139595}</ProjectGuid>
+    <ProjectGuid>{58AFD7D0-844B-4220-B900-347B560EA23C}</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/products</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>productapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

@@ -9,8 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // RabbitMQ connection string (I use CloudAMQP as a RabbitMQ server).
 // Remember to replace this connectionstring with your own.
-string cloudAMQPConnectionString =
-    "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=d8cUbVMUYopAKF42bwBWAbecadiRlJSp";
+string connectionString = "host=rabbitmq";
 
 // Add services to the container.
 
@@ -51,7 +50,7 @@ using (var scope = app.Services.CreateScope())
 
 // Create a message listener in a separate thread.
 Task.Factory.StartNew(() =>
-    new MessageListener(app.Services, cloudAMQPConnectionString).Start());
+    new MessageListener(app.Services, connectionString).Start());
 
 //app.UseHttpsRedirection();
 

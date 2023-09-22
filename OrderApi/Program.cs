@@ -14,8 +14,7 @@ string productServiceBaseUrl = "http://productapi/products/";
 
 // RabbitMQ connection string (I use CloudAMQP as a RabbitMQ server).
 // Remember to replace this connectionstring with your own.
-string cloudAMQPConnectionString =
-   "host=hare.rmq.cloudamqp.com;virtualHost=npaprqop;username=npaprqop;password=d8cUbVMUYopAKF42bwBWAbecadiRlJSp";
+string connectionString = "host=rabbitmq";
 
 // Add services to the container.
 
@@ -33,10 +32,11 @@ builder.Services.AddSingleton<IServiceGateway<ProductDto>>(new
 
 // Register MessagePublisher (a messaging gateway) for dependency injection
 builder.Services.AddSingleton<IMessagePublisher>(new
-    MessagePublisher(cloudAMQPConnectionString));
+    MessagePublisher(connectionString));
 
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

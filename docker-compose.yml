@@ -13,12 +13,16 @@ services:
       context: .
       dockerfile: OrderApi/Dockerfile
 
-
   apigateway:
     image: ${DOCKER_REGISTRY-}apigateway
     build:
       context: .
       dockerfile: ApiGateway/Dockerfile
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+    - "15673:15672"
 
   prometheus:
     image: prom/prometheus

@@ -15,6 +15,8 @@
     <OutputPath>bin\Release</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="Ocelot" Version="18.0.0" />
     <PackageReference Include="prometheus-net.AspNetCore" Version="8.0.0" />

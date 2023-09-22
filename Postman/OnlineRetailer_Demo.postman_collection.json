@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "0e91ffa6-40aa-47bb-92c5-78f23dce272f",
 		"name": "OnlineRetailer_Demo",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2647456"
 	},
 	"item": [
 		{
@@ -11,12 +12,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7001/products",
-					"protocol": "https",
+					"raw": "http://localhost:8081/products",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7001",
+					"port": "8081",
 					"path": [
 						"products"
 					]
@@ -30,12 +31,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7001/products/1",
-					"protocol": "https",
+					"raw": "http://localhost:8081/products/1",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7001",
+					"port": "8081",
 					"path": [
 						"products",
 						"1"
@@ -59,12 +60,12 @@
 					"raw": "{\n    \"name\": \"Wrench\",\n    \"price\": 100,\n    \"itemsInStock\": 5,\n    \"itemsReserved\": 0\n}"
 				},
 				"url": {
-					"raw": "https://localhost:7001/products",
-					"protocol": "https",
+					"raw": "http://localhost:8081/products",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7001",
+					"port": "8081",
 					"path": [
 						"products"
 					]
@@ -87,15 +88,15 @@
 					"raw": "{\n    \"id\": 3,\n    \"name\": \"Drill\",\n    \"price\": 500,\n    \"itemsInStock\": 5\n}"
 				},
 				"url": {
-					"raw": "https://localhost:7001/products/3",
-					"protocol": "https",
+					"raw": "http://localhost:8081/products/1",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7001",
+					"port": "8081",
 					"path": [
 						"products",
-						"3"
+						"1"
 					]
 				}
 			},
@@ -111,12 +112,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://localhost:7001/products/1",
-					"protocol": "https",
+					"raw": "http://localhost:8081/products/1",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7001",
+					"port": "8081",
 					"path": [
 						"products",
 						"1"
@@ -131,12 +132,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7002/orders",
-					"protocol": "https",
+					"raw": "http://localhost:8082/orders",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7002",
+					"port": "8082",
 					"path": [
 						"orders"
 					]
@@ -159,12 +160,12 @@
 					"raw": "{\n\t\"orderLines\":[{\"productId\":2,\"quantity\":1},{\"productId\":3,\"quantity\":1}]\n}\n"
 				},
 				"url": {
-					"raw": "https://localhost:7002/orders",
-					"protocol": "https",
+					"raw": "http://localhost:8082/orders",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7002",
+					"port": "8082",
 					"path": [
 						"orders"
 					]
@@ -173,7 +174,7 @@
 			"response": []
 		},
 		{
-			"name": "POST orderapi/orders (through api gateway) Copy",
+			"name": "POST orderapi/orders (through api gateway)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -187,12 +188,12 @@
 					"raw": "{\n\t\"orderLines\":[{\"productId\":2,\"quantity\":1},{\"productId\":3,\"quantity\":1}]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7000/orderapi/orders",
+					"raw": "http://localhost:8080/orderapi/orders",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"orderapi",
 						"orders"
@@ -207,12 +208,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7000/productapi/products",
-					"protocol": "https",
+					"raw": "http://localhost:8080/productapi/products",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"productapi",
 						"products"
@@ -227,12 +228,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7000/orderapi/orders",
-					"protocol": "https",
+					"raw": "http://localhost:8080/orderapi/orders",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"orderapi",
 						"orders"
@@ -247,12 +248,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7000/productapi/products/1",
-					"protocol": "https",
+					"raw": "http://localhost:8080/productapi/products/1",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"productapi",
 						"products",
@@ -263,43 +264,21 @@
 			"response": []
 		},
 		{
-			"name": "GET orderapi/orders/product/3 (through api gateway)",
+			"name": "GET aggregates/ordersbyproduct/1 (through api gateway)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7000/orderapi/orders/product/3",
-					"protocol": "https",
+					"raw": "http://localhost:8080/aggregates/ordersbyproduct/1",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
-					"path": [
-						"orderapi",
-						"orders",
-						"product",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET aggregates/ordersbyproduct/3 (through api gateway)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:7000/aggregates/ordersbyproduct/3",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"aggregates",
 						"ordersbyproduct",
-						"3"
+						"1"
 					]
 				}
 			},
@@ -311,12 +290,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7000/aggregates/ordersandproducts",
-					"protocol": "https",
+					"raw": "http://localhost:8080/aggregates/ordersandproducts",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7000",
+					"port": "8080",
 					"path": [
 						"aggregates",
 						"ordersandproducts"

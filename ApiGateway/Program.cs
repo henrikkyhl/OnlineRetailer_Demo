@@ -18,6 +18,7 @@ app.UseHttpMetrics();
 // Do it the old way instead:
 app.UseRouting();
 app.UseAuthorization();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapMetrics();

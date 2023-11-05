@@ -106,6 +106,6 @@
   ],
   // Global configuration
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7430"
+    "BaseUrl": "http://localhost:8080"
   }
 }
